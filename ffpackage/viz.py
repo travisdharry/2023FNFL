@@ -1,10 +1,20 @@
 import plotly
 import plotly.express as px
 
-def compareFranchises(df):
-    fig = px.bar(df, 
+def compareFranchises(df, how):
+    '''
+    df: dataframe;
+    how: 'relative' uses relative point values, 'absolute' uses actual point projections
+    '''
+    if how=='relative':
+        main_stat = 'rel_proj'
+        second_stat = 'pts_proj'
+    elif how=='absolute':
+        main_stat = 'pts_proj'
+        second_stat = 'rel_proj'        
+    fig = px.bar(df.loc[(df['starters'].notna())&(df['franchise_name'].notna())], 
                 x="franchise_name", 
-                y='rel_proj', 
+                y=main_stat, 
                 color="position", 
                 text='full_name', 
                 color_discrete_map={
@@ -18,7 +28,7 @@ def compareFranchises(df):
                     "pos": ["QB", "RB", "WR", "TE", "PK", "DEF"]},
                 hover_name="full_name",
                 hover_data={
-                    'rel_proj':True, 'pts_proj':True,
+                    main_stat:True, second_stat:True,
                     'full_name':False, 'position':False, 'franchise_name':False
                     },
                 labels={

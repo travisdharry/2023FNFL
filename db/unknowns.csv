@@ -1,0 +1,4 @@
+player_id,full_name,birth_date,age,weight,height,team,position,fantasy_positions,depth_chart_order,depth_chart_position,status,injury_status,injury_notes,injury_start_date,practice_participation,practice_description,years_exp,active
+748,Mike Williams,1987-05-18,31,212,"6'1""",,WR,['WR'],,,Inactive,,,,,,9,False
+4510,Najee Harris,1994-03-09,27,225,"6'2""",,RB,['LB'],,,Active,,,,,,4,False
+4634,Kenneth Walker,1994-04-01,27,190,70,,WR,['WR'],,,Active,,,,,,5,False
