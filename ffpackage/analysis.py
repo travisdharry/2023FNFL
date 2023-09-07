@@ -3,6 +3,10 @@ import numpy as np
 from datetime import datetime, date
 from dateutil.relativedelta import *
 
+
+# Find the best possible combination of starters for each franchise
+def rosterOptimizer(df)
+
 # Find the best possible combination of starters for each franchise
 def starterSelector(df, how, startersMax, posMax, posMin):
     # Calculate the number of available flex spots
