@@ -1,5 +1,6 @@
 import plotly
 import plotly.express as px
+import plotly.graph_objects as go
 
 def compareFranchises(df, how):
     '''
@@ -12,7 +13,8 @@ def compareFranchises(df, how):
     elif how=='absolute':
         main_stat = 'pts_proj'
         second_stat = 'rel_proj'        
-    fig = px.bar(df.loc[(df['starters'].notna())&(df['franchise_name'].notna())], 
+    dfs = df.groupby('franchise_name').sum().round(0)
+    fig = px.bar(df, 
                 x="franchise_name", 
                 y=main_stat, 
                 color="position", 
@@ -37,6 +39,17 @@ def compareFranchises(df, how):
                     'pts_proj':"Predicted Points",
                 }
                 )
+    fig.add_trace(go.Scatter(
+                x=dfs.index, 
+                y=dfs[main_stat],
+                text=dfs[main_stat],
+                mode='text',
+                textposition='top center',
+                textfont=dict(
+                    size=18,
+                ),
+                showlegend=False
+            ))
     fig.update_layout(
                 barmode='stack', 
                 xaxis={'categoryorder':'total descending'},
