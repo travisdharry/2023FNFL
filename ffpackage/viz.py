@@ -39,6 +39,12 @@ def compareFranchises(df, how):
                     'pts_proj':"Predicted Points",
                 }
                 )
+    fig.update_traces(
+        textposition='inside',
+    )
+    fig.update_yaxes(
+        visible=False
+    )
     fig.add_trace(go.Scatter(
                 x=dfs.index, 
                 y=dfs[main_stat],
@@ -56,7 +62,8 @@ def compareFranchises(df, how):
                 plot_bgcolor='rgba(0,0,0,0)',
                 title="Franchise Comparison",
                 font_family="Skia",
-                showlegend=False
+                showlegend=False,
+                xaxis_title=None
                 )
     return fig
 
