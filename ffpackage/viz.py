@@ -20,12 +20,18 @@ def compareFranchises(df, how):
                 color="position", 
                 text='full_name', 
                 color_discrete_map={
-                    "QB": "hsla(210, 60%, 25%, 1)", 
-                    "RB": "hsla(12, 50%, 45%, 1)", 
-                    "WR": "hsla(267, 40%, 45%, 1)", 
-                    "TE": "hsla(177, 68%, 36%, 1)", 
-                    "PK": "hsla(14, 30%, 40%, 1)", 
-                    "DEF": "hsla(35, 70%, 65%, 1)"}, 
+                    # "QB": "hsla(210, 60%, 25%, 1)", 
+                    # "RB": "hsla(12, 50%, 45%, 1)", 
+                    # "WR": "hsla(267, 40%, 45%, 1)", 
+                    # "TE": "hsla(177, 68%, 36%, 1)", 
+                    # "PK": "hsla(14, 30%, 40%, 1)", 
+                    # "DEF": "hsla(35, 70%, 65%, 1)"}, 
+                    "QB": "#591D73", #
+                    "RB": "#233257", 
+                    "WR": "#4068B8", 
+                    "TE": "#AEDFF2", #529AD9
+                    "PK": "#B3BF54", 
+                    "DEF": "#667825"}, 
                 category_orders={
                     "pos": ["QB", "RB", "WR", "TE", "PK", "DEF"]},
                 hover_name="full_name",
@@ -52,7 +58,7 @@ def compareFranchises(df, how):
                 mode='text',
                 textposition='top center',
                 textfont=dict(
-                    size=18,
+                    size=12,
                 ),
                 showlegend=False
             ))
@@ -61,7 +67,8 @@ def compareFranchises(df, how):
                 xaxis={'categoryorder':'total descending'},
                 plot_bgcolor='rgba(0,0,0,0)',
                 title="Franchise Comparison",
-                font_family="Skia",
+                font_family="Input Serif",
+                #font_family="Skia",
                 showlegend=False,
                 xaxis_title=None
                 )
