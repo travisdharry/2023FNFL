@@ -8,11 +8,11 @@ def compareFranchises(df, how):
     how: 'relative' uses relative point values, 'absolute' uses actual point projections
     '''
     if how=='relative':
-        main_stat = 'rel_proj'
+        main_stat = 'val_proj'
         second_stat = 'pts_proj'
     elif how=='absolute':
         main_stat = 'pts_proj'
-        second_stat = 'rel_proj'        
+        second_stat = 'val_proj'        
     dfs = df.groupby('franchise_name').sum().round(0)
     fig = px.bar(df, 
                 x="franchise_name", 
@@ -41,7 +41,7 @@ def compareFranchises(df, how):
                     },
                 labels={
                     "franchise_name":"Franchise",
-                    "rel_proj":"Relative Value",
+                    "val_proj":"Relative Value",
                     'pts_proj':"Predicted Points",
                 }
                 )
